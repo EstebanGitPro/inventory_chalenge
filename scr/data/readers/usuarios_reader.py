@@ -33,3 +33,14 @@ def login_usuario_admin(nombre, contrasena):
         return usuario
     
     return print("Error: El nombre o la contraseña no validos")
+
+
+def buscar_usuario_cedula(cedula):
+    ruta_csv = obtener_ruta_absoluta('data/usuarios.csv')
+    
+    with open(ruta_csv, 'r', encoding='utf-8') as f:
+        lector = csv.DictReader(f)  
+        for fila in lector:
+            if fila['cedula'] == cedula:
+                return fila
+    return False

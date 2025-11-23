@@ -7,12 +7,7 @@ print("=="*30)
 print("AGREGAR EQUIPO")
 print("=="*30)
 
-
 date = datetime.now()
-
-
-
-
 
 equipo_id = id()
 nombre_equipo = input("Por favor, ingresa el nombre del equipo: ")
@@ -29,6 +24,8 @@ def agregar_equipo(equipo_id, nombre_equipo, categoria , estado_actual, fecha_re
         print("Equipo agregado exitosamente")
     else:
         print("Hubo un error al agregar el equipo")
+        
+    
     
     
     
