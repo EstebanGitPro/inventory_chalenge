@@ -25,3 +25,17 @@ def registro_solicitud(equipo_id, nombre, tipo_usuario, fecha_prestamo, dias_pre
                 escritor.writerow(datos)
         return True
     return False
+
+
+def sobrescribir_solicitudes(solicitudes, fieldnames):
+    ruta_csv = obtener_ruta_absoluta('data/solicitudes.csv')
+    
+    if not ruta_csv:
+        return False
+    
+    with open(ruta_csv, 'w', newline='', encoding='utf-8') as archivo:
+        escritor = csv.DictWriter(archivo, fieldnames=fieldnames)
+        escritor.writeheader()
+        escritor.writerows(solicitudes)
+    
+    return True
