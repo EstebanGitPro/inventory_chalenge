@@ -1,0 +1,23 @@
+{
+    "curso": "Python Avanzado",
+    "estudiantes": [
+        {
+            "nombre": "Ana",
+            "nota": 85
+        },
+        {
+            "nombre": "Beto",
+            "nota": 92
+        },
+        {
+            "nombre": "Carla",
+            "nota": 78
+        },
+        {
+            "nombre": "Daniel",
+            "nota": 95
+        }
+    ],
+    "activo": true,
+    "semestre": "2025-1"
+}
