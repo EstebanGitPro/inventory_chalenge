@@ -44,3 +44,15 @@ def buscar_usuario_cedula(cedula):
             if fila['cedula'] == cedula:
                 return fila
     return False
+
+
+def leer_todos_usuarios():
+    ruta_csv = obtener_ruta_absoluta('data/usuario_admin.csv')
+    usuarios = []
+    
+    with open(ruta_csv, 'r', encoding='utf-8') as f:
+        lector = csv.DictReader(f)
+        for fila in lector:
+            usuarios.append(fila)
+            
+    return usuarios, lector.fieldnames

@@ -50,7 +50,7 @@ def registrar_admin():
         print("Solo puede estra registrado un solo admin")
         
         
-registrar_admin() 
-  
-login()
+if __name__ == "__main__":
+    registrar_admin() 
+    login()
     

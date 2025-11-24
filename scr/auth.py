@@ -42,3 +42,8 @@ def login_admin():
         return None
 
 
+def limpiar_pantalla():
+    """Limpia la pantalla de la consola"""
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+

@@ -1,0 +1,2 @@
+prestamo_id,equipo_id,nombre_equipo,usuario_prestatario,tipo_usuario,fecha_solicitud,fecha_prestamo,fecha_devolucion,dias_autorizados,dias_reales_usados,retraso,estado,mes,anio
+P-0001,k7l3m8n1-5l2o-4j9k-l8m4-n3o2k1l0j9i9,Meta Quest 3 512GB,Nicolás Martínez,administrativo,N/A,24/11/2025,02/12/2025,8,9,SI,devuelto,12,2025

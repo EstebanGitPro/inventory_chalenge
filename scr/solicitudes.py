@@ -97,4 +97,5 @@ def solicitud_equipo():
 
 
 
-solicitud_equipo()
+if __name__ == "__main__":
+    solicitud_equipo()
