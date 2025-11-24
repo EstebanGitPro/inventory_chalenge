@@ -1,6 +1,7 @@
 import csv
 from data.utils import obtener_ruta_absoluta
 from data.readers import cargar_csv_completo
+from data.readers import buscar_equipo
 
 
 
@@ -19,3 +20,6 @@ def registrar_equipo(equipo_id, nombre_equipo, categoria , estado_actual, fecha_
                 return True
     return False
 
+
+                           
+    

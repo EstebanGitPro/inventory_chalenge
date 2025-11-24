@@ -1,15 +1,26 @@
+from data.utils import obtener_ruta_absoluta
+from data.readers import cargar_csv_completo
+import csv
 
 
-
-def registro_solicitud(solicitud_id, nombre, tipo_usuario, dias_prestamo):
-        ruta_csv = obtener_ruta_absoluta('data/solicitudes.csv')    
+def registro_solicitud(equipo_id, nombre, tipo_usuario, fecha_prestamo ,dias_prestamo):
+    ruta_csv = obtener_ruta_absoluta('data/solicitudes.csv')
+    
+    datos = {
+        "equipo_id":equipo_id,
+        "nombre":nombre,
+        "tipo_usuario":tipo_usuario,
+        "fecha_prestamo" : fecha_prestamo,
+        "dias_prestamo":dias_prestamo
+    }
+        
     if ruta_csv:
         
-            with open(ruta_csv, 'a', newline='') as archivo:
-                escritor = csv.DictWriter(archivo, fieldnames=['solicitud_id', 'nombre', 'tipo_usuario', 'dias_prestamo'])
-                if  cargar_csv_completo('data/solicitudes.csv') == []:
-                    escritor.writeheader()
-                    escritor.writerow({'equipo_id': equipo_id, 'nombre_equipo': nombre_equipo, 'categoria': categoria, 'estado_actual': estado_actual, 'fecha_registro': fecha_registro, 'descripcion': descripcion})
-                else:
-                    escritor.writerow({'equipo_id': equipo_id, 'nombre_equipo': nombre_equipo, 'categoria': categoria, 'estado_actual': estado_actual, 'fecha_registro': fecha_registro, 'descripcion': descripcion})
+        with open(ruta_csv, 'a', newline='') as archivo:
+            escritor = csv.DictWriter(archivo, fieldnames=['equipo_id', 'nombre', 'tipo_usuario', 'fecha_prestamo' ,'dias_prestamo'])
+            if  cargar_csv_completo('data/solicitudes.csv') == []:
+                escritor.writeheader()
+                escritor.writerow(datos)
+            else:
+                escritor.writerow(datos)
                 return True

@@ -1,6 +1,6 @@
 import os
 import uuid
-
+from datetime import datetime
 def obtener_ruta_absoluta(ruta_relativa):
     """
     Convierte una ruta relativa al directorio scr/ en una ruta absoluta.
@@ -29,4 +29,34 @@ def obtener_ruta_absoluta(ruta_relativa):
 def id():
     uuid_unico = str(uuid.uuid4())
     return uuid_unico
+
+
+def iguala_formato(string):
+    formatos_soportados = [
+        {
+            "formato": "%d/%m/%Y",
+            "ejemplo": "11/05/2022"},
+        {
+            "formato": "%Y-%m-%d", 
+            "ejemplo": "2022-05-11"}
+    ]
+    
+    mi_formato = "%d/%m/%Y"
+    for formato in formatos_soportados:
+        try:
+            dt = datetime.strptime(string, formato["formato"])
+            return dt.strftime(mi_formato)
+        except ValueError:
+            continue
+    return None
+
+
+
+
+
+    
+ 
+
+
+
 

@@ -1,7 +1,7 @@
 from data.utils import obtener_ruta_absoluta
 import csv
 
-def buscar_equipo(equipo_id):
+def buscar_equipo(equipo_id,estado_actual):
     ruta_csv = obtener_ruta_absoluta('data/equipos.csv')
     
     with open(ruta_csv, 'r', encoding='utf-8') as f:
