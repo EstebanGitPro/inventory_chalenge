@@ -21,5 +21,16 @@ def registrar_equipo(equipo_id, nombre_equipo, categoria , estado_actual, fecha_
     return False
 
 
-                           
+
+def sobrescribir_equipos(equipos, fieldnames):
+    ruta_csv = obtener_ruta_absoluta('data/equipos.csv')
     
+    if not ruta_csv:
+        return False
+    
+    with open(ruta_csv, 'w', newline='', encoding='utf-8') as archivo:
+        escritor = csv.DictWriter(archivo, fieldnames=fieldnames)
+        escritor.writeheader()
+        escritor.writerows(equipos)
+    
+    return True

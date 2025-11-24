@@ -9,8 +9,8 @@ def login():
         print("=="*30)
         print("INICIAR SESION")
         print("=="*30)
-        nombre = input("Por favor, ingresa tu nombre: ")
-        contrasena = input("Por favor, ingresa tu contrasena: ")
+        nombre = input("Por favor, ingresa tu nombre: ").strip()
+        contrasena = input("Por favor, ingresa tu contrasena: ").strip()
         usuario = login_usuario_admin(nombre, contrasena)
         if usuario:
             print("Login exitoso")
@@ -30,9 +30,9 @@ def registrar_admin():
     print("REGISTRAR ADMINISTRADOR")
     print("=="*30)
     if cargar_csv_completo('data/usuario_admin.csv') == []:
-        nombre = input("Por favor, ingresa tu nombre: ")
-        contrasena = input("Por favor, ingresa tu contrasena: ")
-        rol = input("Por favor, ingresa tu rol: ")
+        nombre = input("Por favor, ingresa tu nombre: ").strip()
+        contrasena = input("Por favor, ingresa tu contrasena: ").strip()
+        rol = input("Por favor, ingresa tu rol: ").strip()
         if rol != "admin":
             print("Error: El rol debe ser admin")
         

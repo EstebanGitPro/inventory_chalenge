@@ -4,6 +4,7 @@ Punto de entrada principal de la aplicación
 """
 import sys
 from menu_admin import mostrar_menu_principal
+from auth import login_admin, limpiar_pantalla
 
 
 def main():
@@ -30,10 +31,10 @@ def main():
             # Login fallido
             intentos_restantes = intentos - intento - 1
             if intentos_restantes > 0:
-                print(f"\n⚠️  Intentos restantes: {intentos_restantes}")
+                print(f"\nIntentos restantes: {intentos_restantes}")
                 input("\nPresione ENTER para intentar nuevamente...")
             else:
-                print("\n🚫 Número máximo de intentos alcanzado.")
+                print("\nNumero maximo de intentos alcanzado.")
                 print("   Acceso denegado.\n")
                 sys.exit(1)
 
@@ -42,9 +43,9 @@ if __name__ == "__main__":
     try:
         main()
     except KeyboardInterrupt:
-        print("\n\n⚠️  Programa interrumpido por el usuario.")
-        print("¡Hasta pronto!\n")
+        print("\n\nPrograma interrumpido por el usuario.")
+        print("Hasta pronto!\n")
         sys.exit(0)
     except Exception as e:
-        print(f"\n❌ Error inesperado: {e}")
+        print(f"\nError inesperado: {e}")
         sys.exit(1)

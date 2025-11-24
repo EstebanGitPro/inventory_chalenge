@@ -51,6 +51,12 @@ def iguala_formato(string):
     return None
 
 
+def limpiar_pantalla():
+    """Limpia la consola según el sistema operativo"""
+    os.system('clear' if os.name == 'posix' else 'cls')
+
+
+
 
 
 
