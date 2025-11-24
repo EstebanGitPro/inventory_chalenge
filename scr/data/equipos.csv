@@ -1,15 +1,15 @@
 equipo_id,nombre_equipo,categoria,estado_actual,fecha_registro,descripcion
-3152b1be-20a1-414c-b6cd-fd09851d3395,MacBook Pro M3 14",laptops,DISPONIBLE,2025-11-23,Laptop Apple con chip M3 para desarrollo iOS
+3152b1be-20a1-414c-b6cd-fd09851d3395,"MacBook Pro M3 14""",laptops,DISPONIBLE,2025-11-23,Laptop Apple con chip M3 para desarrollo iOS
 46b9adec-adbc-4e6c-941e-db84922597f9,Lenovo ThinkPad X1 Carbon Gen 11,laptops,DISPONIBLE,2025-11-23,Ultrabook empresarial con 32GB RAM
-a7f3d8c1-5b2e-4f9a-b8c4-d3e2a1f6c8b9,Dell XPS 15 9530,laptops,PRESTADO,2025-11-23,Laptop de alta gama para edición de video
+a7f3d8c1-5b2e-4f9a-b8c4-d3e2a1f6c8b9,Dell XPS 15 9530,laptops,DISPONIBLE,2025-11-23,Laptop de alta gama para edición de video
 b8c4d9e2-6c3f-5a0b-c9d5-e4f3b2a1c9d0,iPad Pro 12.9 M4,tablets,DISPONIBLE,2025-11-23,Tablet profesional con Apple Pencil incluido
 c9d5e0f3-7d4g-6b1c-d0e6-f5g4c3b2a1d1,Samsung Galaxy Tab S9 Ultra,tablets,DISPONIBLE,2025-11-23,Tablet Android con S Pen para diseño
 d0e6f1g4-8e5h-7c2d-e1f7-g6h5d4c3b2a2,DJI Mini 4 Pro,drones,DISPONIBLE,2025-11-23,Drone compacto con cámara 4K y obstáculos omnidireccionales
-e1f7g2h5-9f6i-8d3e-f2g8-h7i6e5f4d3c3,DJI Mavic 3 Classic,drones,MANTENIMIENTO,2025-11-23,"Drone profesional en calibración de cámara Hasselblad"
+e1f7g2h5-9f6i-8d3e-f2g8-h7i6e5f4d3c3,DJI Mavic 3 Classic,drones,DISPONIBLE,2025-11-23,Drone profesional en calibración de cámara Hasselblad
 f2g8h3i6-0g7j-9e4f-g3h9-i8j7f6g5e4d4,Canon EOS R6 Mark II,cámaras,DISPONIBLE,2025-11-23,Cámara mirrorless full-frame para fotografía deportiva
-g3h9i4j7-1h8k-0f5g-h4i0-j9k8g7h6f5e5,Sony Alpha 7R V,cámaras,PRESTADO,2025-11-23,Cámara de 61MP para fotografía comercial
+g3h9i4j7-1h8k-0f5g-h4i0-j9k8g7h6f5e5,Sony Alpha 7R V,cámaras,DISPONIBLE,2025-11-23,Cámara de 61MP para fotografía comercial
 h4i0j5k8-2i9l-1g6h-i5j1-k0l9h8i7g6f6,Multímetro Digital Fluke 87V,herramientas,DISPONIBLE,2025-11-23,Instrumento de medición industrial True RMS
 i5j1k6l9-3j0m-2h7i-j6k2-l1m0i9j8h7g7,Osciloscopio Tektronix TBS1052B,herramientas,DISPONIBLE,2025-11-23,Osciloscopio de 50MHz para análisis de señales
 j6k2l7m0-4k1n-3i8j-k7l3-m2n1j0k9i8h8,Proyector Epson PowerLite L200SW,proyectores,DISPONIBLE,2025-11-23,Proyector láser ultracorto 4200 lumens
-k7l3m8n1-5l2o-4j9k-l8m4-n3o2k1l0j9i9,Meta Quest 3 512GB,realidad_virtual,DISPONIBLE,2025-11-23,Gafas VR independientes con controladores táctiles
+k7l3m8n1-5l2o-4j9k-l8m4-n3o2k1l0j9i9,Meta Quest 3 512GB,realidad_virtual,disponible,2025-11-23,Gafas VR independientes con controladores táctiles
 l8m4n9o2-6m3p-5k0l-m9n5-o4p3l2m1k0j0,Google Pixel Tablet,tablets,MANTENIMIENTO,2025-11-23,Tablet con dock de carga - reparación de puerto USB-C

@@ -1,5 +1,5 @@
-from data.readers import leer_todas_solicitudes, buscar_equipo
-from data.writers import sobrescribir_solicitudes, registrar_prestamo
+from data.readers import leer_todas_solicitudes, buscar_equipo, buscar_prestamo_equipo, leer_todos_prestamos
+from data.writers import sobrescribir_solicitudes, registrar_prestamo, sobrescribir_prestamos, registrar_historial_equipo, registrar_historial_usuario
 from equipos import actualizar_estado_equipo
 from datetime import datetime, timedelta
 from data.utils import iguala_formato
@@ -54,6 +54,91 @@ def rechazar_solicitud(equipo_id, nombre):
         return False, "Error al actualizar solicitud"
     
     return True, "Solicitud rechazada"
+
+
+def registrar_devolucion(equipo_id, fecha_devolucion_real):
+    prestamo = buscar_prestamo_equipo(equipo_id)
+    
+    if not prestamo:
+        return False, "No se encontro un prestamo activo para este equipo"
+    
+    try:
+        fecha_real = datetime.strptime(fecha_devolucion_real, "%d/%m/%Y")
+        fecha_prestamo = datetime.strptime(prestamo['fecha_prestamo'], "%d/%m/%Y")
+        fecha_pactada = datetime.strptime(prestamo['fecha_devolucion'], "%d/%m/%Y")
+    except ValueError:
+        return False, "Formato de fecha invalido"
+    
+    # Calcular dias reales y retraso
+    dias_reales = (fecha_real - fecha_prestamo).days
+    if dias_reales < 0:
+        dias_reales = 0 # Por si devuelven el mismo dia o error en fechas
+        
+    retraso = "SI" if fecha_real > fecha_pactada else "NO"
+    
+    # Actualizar prestamo en memoria
+    prestamos, fieldnames = leer_todos_prestamos()
+    
+    # Asegurar que los nuevos campos esten en fieldnames
+    if 'dias_reales_usados' not in fieldnames:
+        fieldnames.append('dias_reales_usados')
+    if 'retraso' not in fieldnames:
+        fieldnames.append('retraso')
+        
+    prestamo_actualizado = False
+    
+    for p in prestamos:
+        if (p['equipo_id'] == equipo_id and 
+            p['estado'].lower() == 'activo'):
+            p['estado'] = 'devuelto'
+            p['dias_reales_usados'] = str(dias_reales)
+            p['retraso'] = retraso
+            # p['fecha_devolucion'] = fecha_devolucion_real # Opcional: actualizar la fecha pactada a la real? No, mejor mantener la pactada y usar dias reales.
+            # Pero el requerimiento dice "Registrar devolucion... Solicitar fecha_devolucion". 
+            # En prestamos.csv hay campo fecha_devolucion. Usualmente es la pactada. 
+            # Dejaremos la pactada y usaremos dias_reales_usados para saber cuando se devolvio implicitamente (fecha_prestamo + dias_reales).
+            # Ojo: El usuario pidio "dias_reales_usados = diferencia entre fecha_prestamo y fecha_devolucion".
+            # Si cambio fecha_devolucion a la real, pierdo la pactada.
+            # El CSV tiene: fecha_prestamo, fecha_devolucion, dias_prestamo, dias_reales_usados, retraso.
+            # Asumire que fecha_devolucion se mantiene como la pactada.
+            prestamo_actualizado = True
+            break
+            
+    if not prestamo_actualizado:
+        return False, "Error al actualizar el prestamo en la lista"
+        
+    # Guardar cambios en prestamos.csv
+    if not sobrescribir_prestamos(prestamos, fieldnames):
+        return False, "Error al guardar cambios en prestamos.csv"
+        
+    # Actualizar estado del equipo
+    if not actualizar_estado_equipo(equipo_id, "disponible"):
+        return False, "Error al actualizar estado del equipo"
+        
+    # Registrar historiales
+    equipo = buscar_equipo(equipo_id)
+    nombre_equipo = equipo['nombre_equipo'] if equipo else "Desconocido"
+    
+    registrar_historial_equipo(
+        equipo_id, 
+        nombre_equipo, 
+        prestamo['fecha_prestamo'], 
+        fecha_devolucion_real, 
+        prestamo['nombre'], 
+        "devuelto"
+    )
+    
+    registrar_historial_usuario(
+        prestamo['nombre'], 
+        prestamo['tipo_usuario'], 
+        equipo_id, 
+        nombre_equipo, 
+        prestamo['fecha_prestamo'], 
+        fecha_devolucion_real, 
+        retraso
+    )
+    
+    return True, f"Devolucion registrada exitosamente. Retraso: {retraso}"
 
 
 def gestionar_solicitudes_pendientes():
@@ -140,3 +225,5 @@ def listar_prestamos_activos():
         print(f"Estado: {prestamo['estado']}")
     
     input("\nPresiona ENTER para continuar")
+
+#def registrar_devolucion()

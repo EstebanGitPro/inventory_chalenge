@@ -1,5 +1,2 @@
 equipo_id,nombre,tipo_usuario,fecha_prestamo,dias_prestamo,estado
-3152b1be-20a1-414c-b6cd-fd09851d3395,Nicolás Martínez,administrativo,2023-01-01,3,pendiente
-3152b1be-20a1-414c-b6cd-fd09851d3395,Nicolás Martínez,administrativo,2023-01-01,3,pendiente
-b8c4d9e2-6c3f-5a0b-c9d5-e4f3b2a1c9d0,Nicolás Martínez,administrativo,25/11/2025,10,pendiente
-b8c4d9e2-6c3f-5a0b-c9d5-e4f3b2a1c9d0,Nicolás Martínez,administrativo,25/11/2025,8,pendiente
+k7l3m8n1-5l2o-4j9k-l8m4-n3o2k1l0j9i9,Nicolás Martínez,administrativo,24/11/2025,8,aprobado
