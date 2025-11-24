@@ -1,0 +1,45 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "title": "The Great Gatsby",
+            "author": "F. Scott Fitzgerald",
+            "category": "Classic",
+            "price": 10.99,
+            "stock": 50
+        },
+        {
+            "id": 2,
+            "title": "1984",
+            "author": "George Orwell",
+            "category": "Dystopian",
+            "price": 8.99,
+            "stock": 30
+        },
+        {
+            "id": 3,
+            "title": "Python Crash Course",
+            "author": "Eric Matthes",
+            "category": "Education",
+            "price": 25.5,
+            "stock": 20
+        },
+        {
+            "id": 4,
+            "title": "Clean Code",
+            "author": "Robert C. Martin",
+            "category": "Education",
+            "price": 32.0,
+            "stock": 15
+        },
+        {
+            "id": 5,
+            "title": "The Hobbit",
+            "author": "J.R.R. Tolkien",
+            "category": "Fantasy",
+            "price": 12.5,
+            "stock": 40
+        }
+    ],
+    "sales": []
+}
